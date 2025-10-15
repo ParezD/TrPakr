@@ -2,15 +2,18 @@ from random import randrange
 
 class Player:
     def __init__(self, human_player=False):
-        self.Hooman = human_player
-        self.Dice = []
-        self.toRethrow = []
-        self.toKeep = []
+        self.Hooman = human_player # human cli input?
+        self.Dice = [] # dice rolled on the table
+        self.toRethrow = [] # dice that will be rethrown
+        self.toKeep = []    # dice that will be kept (alldice \ torethrow)
+        self.combination = 0    # the highest combination
+        self.numbers = [None]*5 # qol for dev
+        self.EnemyDice = [] #dice that opponent rolled
 
-    def __keep2reroll(self, keep):
+    def __keep2reroll(self):
         alldice = [0,1,2,3,4]
         keeplist = []
-        for i in keep:
+        for i in self.toKeep:
             if i-1 not in keeplist:
                 keeplist.append(i-1)
         rerollidxs = []
@@ -23,8 +26,7 @@ class Player:
         self.Dice = [randrange(6)+1 for i in range(5)]
 
     def rethrow(self):
-        self.toRethrow = []
-        self.toRethrow = self.__keep2reroll(self.toKeep)
+        self.toRethrow = self.__keep2reroll()
         for i in self.toRethrow:
             self.Dice[i] = randrange(6)+1
 
