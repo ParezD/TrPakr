@@ -7,7 +7,7 @@ class Player:
         self.toRethrow = [] # dice that will be rethrown
         self.toKeep = []    # dice that will be kept (alldice \ torethrow)
         self.combination = 0    # the highest combination
-        self.numbers = [None]*5 # qol for dev
+        self.nums = [None]*5 # qol for dev
         self.EnemyDice = [] #dice that opponent rolled
 
     def __keep2reroll(self):

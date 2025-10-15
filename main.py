@@ -10,15 +10,17 @@ if __name__ == "__main__":
     print(p1.Dice)
     evaluate(p1)
     printres(p1)
-    #print(p1.combination)
-    #print(p1.numbers)
-    
-    #p2 = Player()
-    #p2.Dice = [1,2,3,4,5]
-    #evaluate(p2)
-    #print(p2.combination)
-    #print(p2.numbers)
-    #printres(p2)
+
+    p2 = Player()
+    p2.first_throw()
+    p2.keep_dice()
+    p2.rethrow()
+    evaluate(p2)
+    print("Player 2:")
+    printres(p2)
+
+    print(decide(p1, p2))
+
 
 
 
